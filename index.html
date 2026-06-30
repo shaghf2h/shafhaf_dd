@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع سارة</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            color: #ff4d6d;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ff758f;
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+        video {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="step1">
+        <h1>أنتِ سارة؟</h1>
+        <button onclick="nextStep(2)">ايي</button>
+    </div>
+
+    <div id="step2" class="hidden">
+        <h1>هلو دعسوفة قلبي انتي وانا</h1>
+        <button onclick="nextStep(3)">انا وانت شنو؟</button>
+    </div>
+
+    <div id="step3" class="hidden">
+        <video id="myVideo" controls>
+            <source src="1234.mp4" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+    </div>
+</div>
+
+<script>
+    function nextStep(step) {
+        // إخفاء جميع المراحل
+        document.getElementById('step1').classList.add('hidden');
+        document.getElementById('step2').classList.add('hidden');
+        document.getElementById('step3').classList.add('hidden');
+
+        // إظهار المرحلة المطلوبة
+        if (step === 2) {
+            document.getElementById('step2').classList.remove('hidden');
+        } else if (step === 3) {
+            document.getElementById('step3').classList.remove('hidden');
+            // تشغيل الفيديو تلقائياً أول ما يظهر
+            document.getElementById('myVideo').play();
+        }
+    }
+</script>
+
+</body>
+</html>
